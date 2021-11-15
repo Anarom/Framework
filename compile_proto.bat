@@ -1,0 +1,1 @@
+protoc messages.proto --cpp_out ./code/
