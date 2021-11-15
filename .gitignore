@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+#custom
+*.sln
+*.tlog
+.vs/
+client/
+server/
+release/
