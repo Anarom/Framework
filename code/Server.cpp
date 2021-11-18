@@ -92,7 +92,11 @@ int Server::update_state() {
 	return 0;
 }
 
-int Server::insert_into_state(char* new_info) {
+int Server::process(char* action_string) {
+	Action action;
+	action.ParseFromString(action_string);
+	ActionLib::methodPointer method = Server::aLib.get_action_by_id(action.amethod());
+	(Server::aLib.*method)(action.aparams());
 	return 0;
 }
 
@@ -124,9 +128,9 @@ void Server::recv_proc(SOCKET client_socket) {
 	while (true) {
 		iResult = recv(client_socket, recvbuf, DEFAULT_BUFLEN, 0);
 		if (iResult > 0) {
-			//synced_out << "thread: " << std::this_thread::get_id() << "data received" << std::endl;
+			//synced_out << "thread: " << std::this_thread::get_id() << " data received" << std::endl;
 			//synced_out.emit();
-			Server::insert_into_state(recvbuf);
+			Server::process(recvbuf);
 		}
 		else if (iResult <= 0) {
 			shutdown(client_socket, SD_BOTH);
@@ -136,3 +140,24 @@ void Server::recv_proc(SOCKET client_socket) {
 		}
 	}
 }
+
+ActionLib::ActionLib() {
+	ActionLib::action_map[31] = &ActionLib::simple_action;
+	ActionLib::action_map[32] = &ActionLib::another_simple_action;
+}
+
+ActionLib::methodPointer ActionLib::get_action_by_id(unsigned int action_id){
+	ActionLib::methodPointer method = ActionLib::action_map[action_id];
+	return method;
+}
+
+int ActionLib::simple_action(ActionParams params) {
+	std::cout << "method 1 called" << std::endl;
+	return 1;
+}
+
+int ActionLib::another_simple_action(ActionParams params) {
+	std::cout << "method 2 called" << std::endl;
+	return 1;
+}
+
