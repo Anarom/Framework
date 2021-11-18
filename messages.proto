@@ -1,3 +1,13 @@
 syntax = "proto3";
 message DataContainer{}
-message Action{}
+
+message Action{
+	int32 aMethod = 1;
+	ActionParams aParams  = 2;
+}
+
+message ActionParams{
+	int32 specific_target = 1;
+	int32 target_category = 2;
+	int32 some_value = 3;
+}

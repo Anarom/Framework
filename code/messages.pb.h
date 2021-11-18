@@ -47,7 +47,7 @@ struct TableStruct_messages_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[2]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -57,130 +57,19 @@ extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table
 class Action;
 struct ActionDefaultTypeInternal;
 extern ActionDefaultTypeInternal _Action_default_instance_;
+class ActionParams;
+struct ActionParamsDefaultTypeInternal;
+extern ActionParamsDefaultTypeInternal _ActionParams_default_instance_;
 class DataContainer;
 struct DataContainerDefaultTypeInternal;
 extern DataContainerDefaultTypeInternal _DataContainer_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::Action* Arena::CreateMaybeMessage<::Action>(Arena*);
+template<> ::ActionParams* Arena::CreateMaybeMessage<::ActionParams>(Arena*);
 template<> ::DataContainer* Arena::CreateMaybeMessage<::DataContainer>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 
 // ===================================================================
-
-class Action final :
-    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:Action) */ {
- public:
-  inline Action() : Action(nullptr) {}
-  explicit constexpr Action(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  Action(const Action& from);
-  Action(Action&& from) noexcept
-    : Action() {
-    *this = ::std::move(from);
-  }
-
-  inline Action& operator=(const Action& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Action& operator=(Action&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const Action& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Action* internal_default_instance() {
-    return reinterpret_cast<const Action*>(
-               &_Action_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    0;
-
-  friend void swap(Action& a, Action& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Action* other) {
-    if (other == this) return;
-    if (GetOwningArena() == other->GetOwningArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Action* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Action* New() const final {
-    return new Action();
-  }
-
-  Action* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Action>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const Action& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(this, from);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const Action& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(this, from);
-  }
-  public:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "Action";
-  }
-  protected:
-  explicit Action(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:Action)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_messages_2eproto;
-};
-// -------------------------------------------------------------------
 
 class DataContainer final :
     public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:DataContainer) */ {
@@ -229,7 +118,7 @@ class DataContainer final :
                &_DataContainer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    0;
 
   friend void swap(DataContainer& a, DataContainer& b) {
     a.Swap(&b);
@@ -295,6 +184,334 @@ class DataContainer final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_messages_2eproto;
 };
+// -------------------------------------------------------------------
+
+class Action final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Action) */ {
+ public:
+  inline Action() : Action(nullptr) {}
+  ~Action() override;
+  explicit constexpr Action(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Action(const Action& from);
+  Action(Action&& from) noexcept
+    : Action() {
+    *this = ::std::move(from);
+  }
+
+  inline Action& operator=(const Action& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Action& operator=(Action&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Action& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Action* internal_default_instance() {
+    return reinterpret_cast<const Action*>(
+               &_Action_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(Action& a, Action& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Action* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Action* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Action* New() const final {
+    return new Action();
+  }
+
+  Action* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Action>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Action& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const Action& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Action* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Action";
+  }
+  protected:
+  explicit Action(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAParamsFieldNumber = 2,
+    kAMethodFieldNumber = 1,
+  };
+  // .ActionParams aParams = 2;
+  bool has_aparams() const;
+  private:
+  bool _internal_has_aparams() const;
+  public:
+  void clear_aparams();
+  const ::ActionParams& aparams() const;
+  PROTOBUF_MUST_USE_RESULT ::ActionParams* release_aparams();
+  ::ActionParams* mutable_aparams();
+  void set_allocated_aparams(::ActionParams* aparams);
+  private:
+  const ::ActionParams& _internal_aparams() const;
+  ::ActionParams* _internal_mutable_aparams();
+  public:
+  void unsafe_arena_set_allocated_aparams(
+      ::ActionParams* aparams);
+  ::ActionParams* unsafe_arena_release_aparams();
+
+  // int32 aMethod = 1;
+  void clear_amethod();
+  ::PROTOBUF_NAMESPACE_ID::int32 amethod() const;
+  void set_amethod(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_amethod() const;
+  void _internal_set_amethod(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Action)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::ActionParams* aparams_;
+  ::PROTOBUF_NAMESPACE_ID::int32 amethod_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_messages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ActionParams final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ActionParams) */ {
+ public:
+  inline ActionParams() : ActionParams(nullptr) {}
+  ~ActionParams() override;
+  explicit constexpr ActionParams(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ActionParams(const ActionParams& from);
+  ActionParams(ActionParams&& from) noexcept
+    : ActionParams() {
+    *this = ::std::move(from);
+  }
+
+  inline ActionParams& operator=(const ActionParams& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ActionParams& operator=(ActionParams&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ActionParams& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ActionParams* internal_default_instance() {
+    return reinterpret_cast<const ActionParams*>(
+               &_ActionParams_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(ActionParams& a, ActionParams& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ActionParams* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ActionParams* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ActionParams* New() const final {
+    return new ActionParams();
+  }
+
+  ActionParams* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ActionParams>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ActionParams& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ActionParams& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ActionParams* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ActionParams";
+  }
+  protected:
+  explicit ActionParams(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSpecificTargetFieldNumber = 1,
+    kTargetCategoryFieldNumber = 2,
+    kSomeValueFieldNumber = 3,
+  };
+  // int32 specific_target = 1;
+  void clear_specific_target();
+  ::PROTOBUF_NAMESPACE_ID::int32 specific_target() const;
+  void set_specific_target(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_specific_target() const;
+  void _internal_set_specific_target(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 target_category = 2;
+  void clear_target_category();
+  ::PROTOBUF_NAMESPACE_ID::int32 target_category() const;
+  void set_target_category(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_target_category() const;
+  void _internal_set_target_category(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 some_value = 3;
+  void clear_some_value();
+  ::PROTOBUF_NAMESPACE_ID::int32 some_value() const;
+  void set_some_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_some_value() const;
+  void _internal_set_some_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ActionParams)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 specific_target_;
+  ::PROTOBUF_NAMESPACE_ID::int32 target_category_;
+  ::PROTOBUF_NAMESPACE_ID::int32 some_value_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_messages_2eproto;
+};
 // ===================================================================
 
 
@@ -304,15 +521,191 @@ class DataContainer final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// Action
+// DataContainer
 
 // -------------------------------------------------------------------
 
-// DataContainer
+// Action
+
+// int32 aMethod = 1;
+inline void Action::clear_amethod() {
+  amethod_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Action::_internal_amethod() const {
+  return amethod_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Action::amethod() const {
+  // @@protoc_insertion_point(field_get:Action.aMethod)
+  return _internal_amethod();
+}
+inline void Action::_internal_set_amethod(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  amethod_ = value;
+}
+inline void Action::set_amethod(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_amethod(value);
+  // @@protoc_insertion_point(field_set:Action.aMethod)
+}
+
+// .ActionParams aParams = 2;
+inline bool Action::_internal_has_aparams() const {
+  return this != internal_default_instance() && aparams_ != nullptr;
+}
+inline bool Action::has_aparams() const {
+  return _internal_has_aparams();
+}
+inline void Action::clear_aparams() {
+  if (GetArenaForAllocation() == nullptr && aparams_ != nullptr) {
+    delete aparams_;
+  }
+  aparams_ = nullptr;
+}
+inline const ::ActionParams& Action::_internal_aparams() const {
+  const ::ActionParams* p = aparams_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ActionParams&>(
+      ::_ActionParams_default_instance_);
+}
+inline const ::ActionParams& Action::aparams() const {
+  // @@protoc_insertion_point(field_get:Action.aParams)
+  return _internal_aparams();
+}
+inline void Action::unsafe_arena_set_allocated_aparams(
+    ::ActionParams* aparams) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(aparams_);
+  }
+  aparams_ = aparams;
+  if (aparams) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Action.aParams)
+}
+inline ::ActionParams* Action::release_aparams() {
+  
+  ::ActionParams* temp = aparams_;
+  aparams_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::ActionParams* Action::unsafe_arena_release_aparams() {
+  // @@protoc_insertion_point(field_release:Action.aParams)
+  
+  ::ActionParams* temp = aparams_;
+  aparams_ = nullptr;
+  return temp;
+}
+inline ::ActionParams* Action::_internal_mutable_aparams() {
+  
+  if (aparams_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ActionParams>(GetArenaForAllocation());
+    aparams_ = p;
+  }
+  return aparams_;
+}
+inline ::ActionParams* Action::mutable_aparams() {
+  ::ActionParams* _msg = _internal_mutable_aparams();
+  // @@protoc_insertion_point(field_mutable:Action.aParams)
+  return _msg;
+}
+inline void Action::set_allocated_aparams(::ActionParams* aparams) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete aparams_;
+  }
+  if (aparams) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::ActionParams>::GetOwningArena(aparams);
+    if (message_arena != submessage_arena) {
+      aparams = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, aparams, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  aparams_ = aparams;
+  // @@protoc_insertion_point(field_set_allocated:Action.aParams)
+}
+
+// -------------------------------------------------------------------
+
+// ActionParams
+
+// int32 specific_target = 1;
+inline void ActionParams::clear_specific_target() {
+  specific_target_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ActionParams::_internal_specific_target() const {
+  return specific_target_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ActionParams::specific_target() const {
+  // @@protoc_insertion_point(field_get:ActionParams.specific_target)
+  return _internal_specific_target();
+}
+inline void ActionParams::_internal_set_specific_target(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  specific_target_ = value;
+}
+inline void ActionParams::set_specific_target(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_specific_target(value);
+  // @@protoc_insertion_point(field_set:ActionParams.specific_target)
+}
+
+// int32 target_category = 2;
+inline void ActionParams::clear_target_category() {
+  target_category_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ActionParams::_internal_target_category() const {
+  return target_category_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ActionParams::target_category() const {
+  // @@protoc_insertion_point(field_get:ActionParams.target_category)
+  return _internal_target_category();
+}
+inline void ActionParams::_internal_set_target_category(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  target_category_ = value;
+}
+inline void ActionParams::set_target_category(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_target_category(value);
+  // @@protoc_insertion_point(field_set:ActionParams.target_category)
+}
+
+// int32 some_value = 3;
+inline void ActionParams::clear_some_value() {
+  some_value_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ActionParams::_internal_some_value() const {
+  return some_value_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ActionParams::some_value() const {
+  // @@protoc_insertion_point(field_get:ActionParams.some_value)
+  return _internal_some_value();
+}
+inline void ActionParams::_internal_set_some_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  some_value_ = value;
+}
+inline void ActionParams::set_some_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_some_value(value);
+  // @@protoc_insertion_point(field_set:ActionParams.some_value)
+}
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 
