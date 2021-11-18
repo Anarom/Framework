@@ -82,17 +82,23 @@ int Client::send_data(std::string data) {
 
 
 int Client::input_proc(void) {
-	//std::osyncstream synced_out(std::cout);
+	std::osyncstream synced_out(std::cout);
 	Action generated_action;
 	int result = 0;
 
+	//some temp binds
+	Client::keyboard_map[0x31] = 31;
+	Client::keyboard_map[0x32] = 32;
+
 	//user input here
-	unsigned int messages_left = 10;
-	while (messages_left > 0) {
-		result = Client::send_data(generated_action.SerializeAsString());
-		if (result != 0) return result;
-		messages_left--;
-		Sleep(1000);
+	while (true) {
+		for (auto const& [key, val] : Client::keyboard_map) { //?
+			if (GetAsyncKeyState(key)) {
+				generated_action.set_amethod(val);
+				result = Client::send_data(generated_action.SerializeAsString());
+				Sleep(100);
+			}
+		}
 	}
 	return 0;
 }

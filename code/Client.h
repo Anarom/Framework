@@ -17,17 +17,16 @@ class Client {
 private:
 	const char* HOST = "localhost";
 	const char* PORT = "27015";
-
 	std::thread recv_thread;
 	std::thread input_thread;
 	SOCKET conn_socket = INVALID_SOCKET;
-
 	void recv_proc();
 	int input_proc();
 	int send_data(std::string data);
-
 	unsigned int start();
 	void shut_down();
+
+	std::map<int, int> keyboard_map;
 
 public:
 	bool startup_successful = false;
